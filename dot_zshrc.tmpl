@@ -9,6 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 [[ -d "$HOME/local/bin" ]] && export PATH="$HOME/local/bin:$PATH"
 [[ -d "$HOME/.emacs/bin" ]] && export PATH="$HOME/.emacs/bin:$PATH"
+[[ -d "$HOME/go/bin" ]] && export PATH="$HOME/go/bin:$PATH"
 
 {{- if eq .chezmoi.os "darwin" }}
 if [[ -d "/opt/homebrew/opt/sqlite/bin" ]]; then
