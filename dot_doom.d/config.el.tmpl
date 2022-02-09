@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Miguel Lloreda"
-      user-mail-address "{{ .email}}")
+      user-mail-address "{{ .email }}")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -82,11 +82,13 @@
   :commands (lsp lsp-deferred)
   :hook (go-mode . lsp-deferred))
 
-{{ if eq .chezmoi.os "darwin" -}}
 (use-package! conda
   :ensure t
   :custom
+{{- if eq .chezmoi.os "darwin" }}
   (conda-anaconda-home "~/miniforge3"))
+{{- else if eq .chezmoi.os "linux" }}
+  (conda-anaconda-home "~/anaconda3"))
 {{- end }}
 
 (use-package! org-super-agenda
