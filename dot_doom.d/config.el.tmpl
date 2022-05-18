@@ -166,3 +166,6 @@
                           (:discard (:tag ("Chore" "Routine" "Daily")))))))))))
 
 (use-package! protobuf-mode)
+
+(setq dap-auto-configure-features '(sessions locals controls tooltip))
+(use-package 'dap-delve-go)
